@@ -1,7 +1,7 @@
 node {
   stage ('Unit Tests'){
     echo 'Unit Tests'
-    echo ls
+    git 'https://github.com/king1459/java-project.git'
     sh 'ant -f test.xml -v'
     }
   stage ('Build'){
