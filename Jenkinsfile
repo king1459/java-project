@@ -1,5 +1,4 @@
 node {
-  agent any
   stage ('Unit Tests'){
     echo 'Unit Tests'
     sh 'ant -f test.xml -v'
