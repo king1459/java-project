@@ -1,7 +1,7 @@
 node {
   stage ('Unit Tests'){
     echo 'Unit Tests'
-    echo pwd
+    echo ls
     sh 'ant -f test.xml -v'
     }
   stage ('Build'){
