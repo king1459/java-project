@@ -1,7 +1,8 @@
 node {
-  stage ('Unit Tests'){
-    echo 'Unit Tests'
+  stage ('Setup'){
     git 'https://github.com/king1459/java-project.git'
+    }
+  stage ('Unit Tests'){
     sh 'ant -f test.xml -v'
     }
   stage ('Build'){
@@ -9,7 +10,7 @@ node {
     sh 'ant -f build.xml -v'
     }
   stage ('Deploy'){
-    sh 'aws s3 cp /var/jenkins_home/workspaces/java-pipeline/dist/* s3://assignment10-s3bucket-o6pl7q0lmjh9.s3.amazonaws.com'
+    sh 'sudo aws s3 cp /var/jenkins_home/workspaces/java-pipeline/dist/* s3://assignment10-s3bucket-o6pl7q0lmjh9.s3.amazonaws.com'
   }
   stage ('Report'){
     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIAJKQUACHR3WKOHRSA', credentialsId: '059354642686', secretKeyVariable: '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']]){ 
