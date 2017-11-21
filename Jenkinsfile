@@ -1,4 +1,4 @@
-node {
+node ("linux") {
   stage ('Setup'){
     git 'https://github.com/king1459/java-project.git'
     }
