@@ -9,7 +9,7 @@ node ("linux") {
     sh 'ant -f build.xml -v'
     }
   stage ('Deploy'){
-    sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-${env.BUILD_NUMBER}.jar s3://assignment10-s3bucket-paylhna20xyk.s3.amazonaws.com/index.html"
+    sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-${env.BUILD_NUMBER}.jar s3://assignment10-s3bucket-paylhna20xyk.s3.amazonaws.com"
   }
   stage ('Report'){
    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
